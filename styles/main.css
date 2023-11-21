@@ -86,3 +86,16 @@ h1 {
   font-size: 1rem;
   cursor: pointer;
 }
+
+@media (max-width: 600px) {
+  .app {
+    padding: 1rem;
+    margin: 1rem;
+  }
+  #form {
+    width: 20rem;
+  }
+  #grocery {
+    width: 15rem;
+  }
+}

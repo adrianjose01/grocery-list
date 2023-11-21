@@ -63,3 +63,26 @@ h1 {
 #submit-btn:hover {
   opacity: 0.7;
 }
+
+#grocery-list {
+  margin-top: 3rem;
+}
+
+.grocery-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+#clear-btn {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+#clear,
+.delete-btn {
+  color: red;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}

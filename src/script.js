@@ -9,11 +9,16 @@ $form.addEventListener("submit", (e) => {
   e.preventDefault();
   const grocery = $input.value;
   groceries.push({ name: grocery, id: Math.random().toString() });
+  localStorage.setItem("groceries", JSON.stringify(groceries));
   insertGroceriesInHtml();
   $input.value = "";
 });
 
 const insertGroceriesInHtml = () => {
+  groceries = JSON.parse(localStorage.getItem("groceries"));
+  if (!groceries) {
+    groceries = [];
+  }
   $groceryList.innerHTML = "";
   groceries.forEach((g) => {
     let html = `<section class="grocery-container">
@@ -25,12 +30,14 @@ const insertGroceriesInHtml = () => {
 };
 
 $clear.addEventListener("click", () => {
-  groceries.length = 0;
+  localStorage.removeItem("groceries");
   insertGroceriesInHtml();
 });
 
 const deleteGrocery = (id) => {
   groceries = groceries.filter((g) => g.id != id);
+  localStorage.removeItem("groceries");
+  localStorage.setItem("groceries", JSON.stringify(groceries));
   insertGroceriesInHtml();
 };
 
